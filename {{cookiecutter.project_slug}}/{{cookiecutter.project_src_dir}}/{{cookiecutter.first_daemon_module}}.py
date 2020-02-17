@@ -49,7 +49,6 @@ class {{ cookiecutter.class_name }}({{ cookiecutter.base_class }}):
     async def _measure(self):
         return {"channel": 0}
 {% endif %}
-
 {% if "Hardware" in cookiecutter.base_class %}
     def _set_position(self, position):
         ...

@@ -15,13 +15,17 @@ with open("README.md") as readme_file:
     readme = readme_file.read()
 
 
-requirements=["yaqd-core"]
+requirements = ["yaqd-core"]
 
 extra_requirements = {"dev": ["black", "pre-commit"]}
 
-setup_requirements = [{%- if cookiecutter.use_pytest == "y" %}"pytest-runner",{%- endif %} ]
+setup_requirements = [
+    {%- if cookiecutter.use_pytest == "y" %}"pytest-runner",{%- endif %}
+]
 
-test_requirements = [{%- if cookiecutter.use_pytest == "y" %}"pytest>=3",{%- endif %} ]
+test_requirements = [
+    {%- if cookiecutter.use_pytest == "y" %}"pytest>=3",{%- endif %}
+]
 
 {%- set license_classifiers = {
     "GNU Lesser General Public License v3 (LGPL)": "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
@@ -61,7 +65,7 @@ setup(
     license="{{ cookiecutter.open_source_license }}",
 {%- endif %}
     long_description=readme,
-    long_description_content_type='text/markdown',
+    long_description_content_type="text/markdown",
     include_package_data=True,
     package_data=extra_files,
     keywords="{{ cookiecutter.project_slug }}",
