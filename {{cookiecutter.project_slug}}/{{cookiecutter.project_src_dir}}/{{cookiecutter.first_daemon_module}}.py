@@ -1,7 +1,10 @@
 import asyncio
 from typing import Dict, Any
 
-from yaqd_core import {{ cookiecutter.base_class }}, set_action
+from yaqd_core import {{ cookiecutter.base_class }}, logging
+
+logger = logging.getLogger(__name__)
+logger.setLevel(logging.INFO)
 
 
 class {{ cookiecutter.class_name }}({{ cookiecutter.base_class }}):
@@ -39,7 +42,6 @@ class {{ cookiecutter.class_name }}({{ cookiecutter.base_class }}):
     def get_value(self):
         return self.value
 
-    @set_action
     def set_value(self, value):
         ...
 {% endif %}
@@ -61,6 +63,6 @@ class {{ cookiecutter.class_name }}({{ cookiecutter.base_class }}):
             self._busy = False
             # There must be at least one `await` in this loop
             # This one waits for something to trigger the "busy" state
-            # (any set_action will do this automatically)
+            # (Setting `self._busy = True)
             # Otherwise, you can simply `await asyncio.sleep(0.01)`
             await self._busy_sig.wait()
