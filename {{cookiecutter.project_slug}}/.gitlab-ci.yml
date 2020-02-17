@@ -34,7 +34,7 @@ before_script:
 mypy:
   stage: test
   script:
-    - mypy yaqd_core
+    - mypy {{ cookiecutter.project_src_dir }}
 pytest:
   stage: test
   script:
