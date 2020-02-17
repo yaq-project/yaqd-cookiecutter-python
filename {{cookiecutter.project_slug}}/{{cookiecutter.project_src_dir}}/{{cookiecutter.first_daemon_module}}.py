@@ -1,3 +1,5 @@
+__all__ = ["{{ cookiecutter.class_name }}"]
+
 import asyncio
 from typing import Dict, Any
 
