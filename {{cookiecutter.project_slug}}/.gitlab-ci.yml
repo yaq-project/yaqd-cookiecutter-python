@@ -29,16 +29,21 @@ before_script:
   - virtualenv venv
   - source venv/bin/activate
   - pip install -U twine
-  - pip install -U pytest mypy
+  - pip install -U mypy
+  - pip install -U yaqd_core
+  {% if cookiecutter.use_pytest == "y" %}- pip install -U pytest{% endif %}
     
 mypy:
   stage: test
   script:
     - mypy {{ cookiecutter.project_src_dir }}
+
+{% if cookiecutter.use_pytest == "y" %}
 pytest:
   stage: test
   script:
     - pytest
+{% endif %}
 
 run:
   stage: build
