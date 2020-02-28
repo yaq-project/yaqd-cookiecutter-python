@@ -19,14 +19,6 @@ requirements = ["yaqd-core"]
 
 extra_requirements = {"dev": ["black", "pre-commit"]}
 
-setup_requirements = [
-    {%- if cookiecutter.use_pytest == "y" %}"pytest-runner",{%- endif %}
-]
-
-test_requirements = [
-    {%- if cookiecutter.use_pytest == "y" %}"pytest>=3",{%- endif %}
-]
-
 {%- set license_classifiers = {
     "GNU Lesser General Public License v3 (LGPL)": "License :: OSI Approved :: GNU Lesser General Public License v3 (LGPLv3)",
     "MIT license": "License :: OSI Approved :: MIT License",
@@ -71,9 +63,6 @@ setup(
     keywords="{{ cookiecutter.project_slug }}",
     name="{{ cookiecutter.project_slug }}",
     packages=find_packages(include=["{{ cookiecutter.project_slug }}", "{{ cookiecutter.project_slug }}.*"]),
-    setup_requires=setup_requirements,
-    test_suite="tests",
-    tests_require=test_requirements,
     url="https://gitlab.com/{{ cookiecutter.gitlab_org }}/{{ cookiecutter.project_slug }}",
     version=version,
     zip_safe=False,
