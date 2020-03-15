@@ -62,7 +62,7 @@ setup(
     package_data=extra_files,
     keywords="{{ cookiecutter.project_slug }}",
     name="{{ cookiecutter.project_slug }}",
-    packages=find_packages(include=["{{ cookiecutter.project_slug }}", "{{ cookiecutter.project_slug }}.*"]),
+    packages=find_packages(include=["{{ cookiecutter.project_src_dir }}", "{{ cookiecutter.project_src_dir }}.*"]),
     url="https://gitlab.com/{{ cookiecutter.gitlab_org }}/{{ cookiecutter.project_slug }}",
     version=version,
     zip_safe=False,
