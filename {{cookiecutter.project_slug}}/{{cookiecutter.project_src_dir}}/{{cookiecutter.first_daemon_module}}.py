@@ -17,7 +17,8 @@ class {{ cookiecutter.class_name }}({{ cookiecutter.base_class }}):
         super().__init__(name, config, config_filepath)
         # Perform any unique initialization
 {% if cookiecutter.base_class == "Sensor" %}
-        self.channels = {"channel": ("units", ())}
+        self.channel_names = ["channel"]
+        self.channel_units = {"channel": "units"}
 {% endif %}
 
     def _load_state(self, state):
