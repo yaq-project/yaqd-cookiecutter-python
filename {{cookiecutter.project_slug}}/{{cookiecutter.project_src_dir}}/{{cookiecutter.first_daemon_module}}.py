@@ -1,7 +1,7 @@
 __all__ = ["{{ cookiecutter.class_name }}"]
 
 import asyncio
-from typing import Dict, Any
+from typing import Dict, Any, List
 
 from yaqd_core import {{ cookiecutter.base_class }}, logging
 
@@ -11,6 +11,7 @@ logger.setLevel(logging.INFO)
 
 class {{ cookiecutter.class_name }}({{ cookiecutter.base_class }}):
     _kind = "{{ cookiecutter.first_daemon_kind }}"
+    traits: List[str] = []
     defaults: Dict[str, Any] = {}
 
     def __init__(self, name, config, config_filepath):
