@@ -49,9 +49,7 @@ run:
   stage: build
   script:
     - python setup.py sdist bdist_wheel
-    # an alternative approach is to install and run:
-    - pip install -U dist/*.whl
-    # run the command here
+    - pip install -e .
   artifacts:
     paths:
       - dist/*
