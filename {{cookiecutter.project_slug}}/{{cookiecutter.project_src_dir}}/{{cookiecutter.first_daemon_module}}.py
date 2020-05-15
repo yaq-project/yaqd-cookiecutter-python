@@ -5,9 +5,12 @@ from typing import Dict, Any, List
 
 from yaqd_core import {{ cookiecutter.base_class }}
 
+from .__version__ import __branch__
+
 
 class {{ cookiecutter.class_name }}({{ cookiecutter.base_class }}):
     _kind = "{{ cookiecutter.first_daemon_kind }}"
+    _version = "0.1.0" + f"+{__branch__}" if __branch__ else ""
     traits: List[str] = []
     defaults: Dict[str, Any] = {}
 
