@@ -1,62 +1,47 @@
-# This file is a template, and might need editing before it works on your project.
-# Official language image. Look for the different tagged releases at:
-# https://hub.docker.com/r/library/python/tags/
+# configure
 image: python:latest
-
-# Change pip's cache directory to be inside the project directory since we can
-# only cache local items.
 variables:
-  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"
-
-stages:
-  - build
-  - test
-  - deploy
-
-# Pip's cache doesn't store the python packages
-# https://pip.pypa.io/en/stable/reference/pip_install/#caching
-#
-# If you want to also cache the installed packages, you have to install
-# them in a virtualenv and cache it as well.
+  PIP_CACHE_DIR: "$CI_PROJECT_DIR/.cache/pip"  # cache on project level
 cache:
   paths:
     - .cache/pip
     - venv/
 
+# common to all scripts
 before_script:
-  - python -V  # Print out python version for debugging
+  - python -V
   - pip install -U virtualenv
   - virtualenv venv
   - source venv/bin/activate
   - pip install -U twine
+  - pip install -U pytest
   - pip install -U mypy
-  - pip install -U yaqd_core
-  {% if cookiecutter.use_pytest == "y" %}- pip install -U pytest{% endif %}
-    
-mypy:
-  stage: test
-  script:
-    - mypy {{ cookiecutter.project_src_dir }}
+  - pip install -U yaqc
+  - pip install -U yaqd-core
+  - pip install -e .
 
+# test stage
 {% if cookiecutter.use_pytest == "y" %}
 pytest:
   stage: test
   script:
     - pytest
 {% endif %}
-
-run:
-  stage: build
+mypy:
+  stage: test
   script:
-    - python setup.py sdist bdist_wheel
-    - pip install -e .
-  artifacts:
-    paths:
-      - dist/*
+    - mypy {{ cookiecutter.project_src_dir }}
+entry:
+  stage: test
+  script:
+    - yaqd-{{ cookiecutter.first_daemon_kind }} --version
+    - yaqd-{{ cookiecutter.first_daemon_kind }} -h
 
-deploy_twine:
+# deploy stage
+twine:
   stage: deploy
   script:
+    - python setup.py sdist bdist_wheel
     - twine upload dist/*
   artifacts:
     paths:
