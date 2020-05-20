@@ -1,8 +1,7 @@
 {
   "full_name": "yaq Developers",
   "email": "yaqd@example.com",
-  "gitlab_username": "ksunden",
-  "gitlab_org": "{{ cookiecutter.gitlab_username }}",
+  "gitlab_org": "yaq",
   "project_name": "Yaqd Boilerplate",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
   "project_src_dir": "{{ cookiecutter.project_slug.lower().replace(' ', '_').replace('-', '_') }}",
