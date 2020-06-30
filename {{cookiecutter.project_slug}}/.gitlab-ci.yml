@@ -13,12 +13,13 @@ before_script:
   - pip install -U virtualenv
   - virtualenv venv
   - source venv/bin/activate
-  - pip install -U twine
+  - pip install -U flit
   - pip install -U pytest
   - pip install -U mypy
   - pip install -U yaqc
   - pip install -U yaqd-core
-  - pip install -e .
+  - pip install -U yaq-traits
+  - pip install .
 
 # test stage
 {% if cookiecutter.use_pytest == "y" %}
@@ -36,13 +37,16 @@ entry:
   script:
     - yaqd-{{ cookiecutter.first_daemon_kind }} --version
     - yaqd-{{ cookiecutter.first_daemon_kind }} -h
+traits:
+  stage: test
+  script:
+    - for i in {{ cookiecutter.project_src_dir }}/*.avpr; do yaq-traits check $i; done
 
 # deploy stage
-twine:
+flit:
   stage: deploy
   script:
-    - python setup.py sdist bdist_wheel
-    - twine upload dist/*
+    - flit publish
   artifacts:
     paths:
       - dist/*
