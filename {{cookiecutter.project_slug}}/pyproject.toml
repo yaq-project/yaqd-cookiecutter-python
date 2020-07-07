@@ -4,6 +4,7 @@ build-backend = "flit_core.buildapi"
 
 [tool.flit.metadata]
 module = "{{ cookiecutter.project_src_dir }}"
+dist-name = "{{ cookiecutter.project_slug }}"
 author = "{{ cookiecutter.full_name.replace('\"', '\\\"') }}"
 author-email = "{{ cookiecutter.email }}"
 home-page = "https://yaq.fyi"
