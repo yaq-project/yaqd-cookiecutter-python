@@ -3,26 +3,15 @@ __all__ = ["{{ cookiecutter.class_name }}"]
 import asyncio
 from typing import Dict, Any, List
 
-from yaqd_core import {{ cookiecutter.base_class }}
+from yaqd_core import IsDaemon
 
 
-class {{ cookiecutter.class_name }}({{ cookiecutter.base_class }}):
+class {{ cookiecutter.class_name }}(IsDaemon):
     _kind = "{{ cookiecutter.first_daemon_kind }}"
 
     def __init__(self, name, config, config_filepath):
         super().__init__(name, config, config_filepath)
         # Perform any unique initialization
-{% if cookiecutter.base_class == "Sensor" %}
-        self._channel_names = ["channel"]
-        self._channel_units = {"channel": "units"}
-
-    async def _measure(self):
-        return {"channel": 0}
-{% endif %}
-{% if "Hardware" in cookiecutter.base_class %}
-    def _set_position(self, position):
-        ...
-{% endif %}
 
     async def update_state(self):
         """Continually monitor and update the current daemon state."""
