@@ -8,7 +8,6 @@
   "version": "0.1.0",
   "open_source_license": ["GNU Lesser General Public License v3 (LGPL)", "MIT license", "BSD license", "ISC license", "Apache Software License 2.0", "GNU General Public License v3 (GPL)", "Not open source"],
   "use_pytest": "n",
-  "base_class": ["Base", "Hardware", "ContinuousHardware", "DiscreteHardware", "Sensor"],
   "first_daemon_kind": "my-daemon",
   "first_daemon_module": "_{{ cookiecutter.first_daemon_kind.replace('-', '_') }}",
   "class_name": "{{ cookiecutter.first_daemon_kind.title().replace('-', '') }}"
