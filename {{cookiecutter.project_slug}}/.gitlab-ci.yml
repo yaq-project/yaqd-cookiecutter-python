@@ -36,7 +36,8 @@ entry:
   stage: test
   script:
     - yaqd-{{ cookiecutter.first_daemon_kind }} --version
-    - yaqd-{{ cookiecutter.first_daemon_kind }} -h
+    - yaqd-{{ cookiecutter.first_daemon_kind }} --help
+    - yaqd-{{ cookiecutter.first_daemon_kind }} --protocol
 traits:
   stage: test
   script:
