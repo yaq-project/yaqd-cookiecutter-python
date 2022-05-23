@@ -1,3 +1,4 @@
+{% raw -%}
 name: run entry points
 
 on:
@@ -29,5 +30,4 @@ jobs:
         yaqd-dwyer-16b --help
         yaqd-dwyer-16c --version
         yaqd-dwyer-16c --help
-
-
+{%- endraw %}
