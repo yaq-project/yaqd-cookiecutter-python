@@ -3,8 +3,8 @@ doc = ""
 traits = ["is-daemon"]
 
 [links]
-source = "https://gitlab.com/yaq/{{ cookiecutter.project_slug }}"
-bugtracker = "https://gitlab.com/yaq/{{ cookiecutter.project_slug }}/-/issues"
+source = "https://github.com/yaq-project/{{ cookiecutter.project_slug }}"
+bugtracker = "https://github.com/yaq-project/{{ cookiecutter.project_slug }}/-/issues"
 
 [installation]
 PyPI = "https://pypi.org/project/{{ cookiecutter.project_slug }}"

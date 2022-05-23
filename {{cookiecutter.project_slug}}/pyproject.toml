@@ -5,8 +5,7 @@ build-backend = "flit_core.buildapi"
 [tool.flit.metadata]
 module = "{{ cookiecutter.project_src_dir }}"
 dist-name = "{{ cookiecutter.project_slug }}"
-author = "{{ cookiecutter.full_name.replace('\"', '\\\"') }}"
-author-email = "{{ cookiecutter.email }}"
+author = "yaq developers"
 home-page = "https://yaq.fyi"
 description-file = "README.md"
 requires-python = ">=3.7"
@@ -33,8 +32,8 @@ classifiers = [
 ]
 
 [tool.flit.metadata.urls]
-Source = "https://gitlab.com/yaq/{{ cookiecutter.project_slug }}"
-Issues = "https://gitlab.com/yaq/{{ cookiecutter.project_slug }}/issues"
+Source = "https://github.com/yaq-project/{{ cookiecutter.project_slug }}"
+Issues = "https://github.com/yaq-project/{{ cookiecutter.project_slug }}/issues"
 
 [tool.flit.metadata.requires-extra]
 dev = ["black", "pre-commit"]
