@@ -19,6 +19,7 @@ jobs:
       uses: actions/setup-python@v2
       with:
         python-version: ${{ matrix.python-version }}
+{%- endraw %}
     - name: Install dependencies
       run: |
         python -m pip install --upgrade pip!=22.1.*
@@ -26,8 +27,5 @@ jobs:
         python -m pip install --upgrade .
     - name: Test with pytest
       run: |
-        yaqd-dwyer-16b --version
-        yaqd-dwyer-16b --help
-        yaqd-dwyer-16c --version
-        yaqd-dwyer-16c --help
-{%- endraw %}
+        {{cookiecutter.first_daemon_kind}} --version
+        {{cookiecutter.first_daemon_kind}} --help
