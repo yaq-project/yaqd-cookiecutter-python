@@ -27,5 +27,5 @@ jobs:
         python -m pip install --upgrade .
     - name: Test with pytest
       run: |
-        {{cookiecutter.first_daemon_kind}} --version
-        {{cookiecutter.first_daemon_kind}} --help
+        yaqd-{{cookiecutter.first_daemon_kind}} --version
+        yaqd-{{cookiecutter.first_daemon_kind}} --help
