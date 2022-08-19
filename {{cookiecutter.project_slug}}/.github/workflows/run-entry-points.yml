@@ -25,7 +25,7 @@ jobs:
         python -m pip install --upgrade pip!=22.1.*
         python -m pip install --upgrade wheel setuptools
         python -m pip install --upgrade .
-    - name: Test with pytest
+    - name: Run entry points
       run: |
         yaqd-{{cookiecutter.first_daemon_kind}} --version
         yaqd-{{cookiecutter.first_daemon_kind}} --help
