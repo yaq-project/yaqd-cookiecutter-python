@@ -1,4 +1,5 @@
 {
+  "full_name": "yaq Developers",
   "project_name": "yaqd-boilerplate",
   "project_slug": "{{ cookiecutter.project_name.lower().replace(' ', '-') }}",
   "project_src_dir": "{{ cookiecutter.project_slug.lower().replace(' ', '_').replace('-', '_') }}",
