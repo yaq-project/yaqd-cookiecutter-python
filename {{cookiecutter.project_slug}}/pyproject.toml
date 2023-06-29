@@ -4,7 +4,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "{{ cookiecutter.project_slug }}"
-authors = [{name="yaq developers"}]
+authors = ["{{ cookiecutter.full_name.replace('\"', '\\\"') }}"]
 readme = "README.md"
 requires-python = ">=3.7"
 requires = ["yaqd-core>=2020.06.3"]
