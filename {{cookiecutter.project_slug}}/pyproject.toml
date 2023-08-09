@@ -47,7 +47,7 @@ yaqd-{{ cookiecutter.first_daemon_kind }} = "{{ cookiecutter.project_src_dir }}.
 
 [tool.black]
 line-length = 99
-target-version = ['py11']
+target-version = ['py37', 'py38', 'py39', 'py10', 'py11']
 include = '\.pyi?$'
 exclude = '''
 /(
