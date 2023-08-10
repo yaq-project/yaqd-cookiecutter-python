@@ -7,9 +7,12 @@ name = "{{ cookiecutter.project_slug }}"
 authors = [
   {name = "{{ cookiecutter.full_name.replace('\"', '\\\"') }}", email = "{{ cookiecutter.email }}"},
 ]
+description = "{{ cookiecutter.project_short_description }}"
 readme = "README.md"
 requires-python = ">=3.7"
-requires = ["yaqd-core>=2020.06.3"]
+dependencies = [
+  "yaqd-core>=2020.06.3",
+]
 dynamic = ["version"]
 {%- set license_spdx = {
 "GNU Lesser General Public License v3 (LGPL)": "LGPL-3.0-only",
@@ -59,7 +62,7 @@ yaqd-{{ cookiecutter.first_daemon_kind }} = "{{ cookiecutter.project_src_dir }}.
 
 [tool.black]
 line-length = 99
-target-version = ['py37', 'py38']
+target-version = ['py37', 'py38', 'py39', 'py10', 'py11']
 include = '\.pyi?$'
 exclude = '''
 /(
