@@ -4,7 +4,9 @@ build-backend = "hatchling.build"
 
 [project]
 name = "{{ cookiecutter.project_slug }}"
-authors = ["{{ cookiecutter.full_name.replace('\"', '\\\"') }}"]
+authors = [
+  {name = "{{ cookiecutter.full_name.replace('\"', '\\\"') }}"{%- if cookiecutter.email %}, email = "{{ cookiecutter.email }}"{%- endif %}},
+]
 description = "{{ cookiecutter.project_short_description }}"
 readme = "README.md"
 requires-python = ">=3.7"
